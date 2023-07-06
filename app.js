@@ -29,5 +29,7 @@ app.use("/api/v1",user)
 
 //middleware for error
 app.use(errorMiddleware)
-
+app.get("/",(req,res)=>{
+  res.send("<h2>Welcome to our API</h2>")
+})
 module.exports=app
