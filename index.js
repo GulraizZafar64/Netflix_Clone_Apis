@@ -28,7 +28,7 @@ dotenv.config({path:"backend/config/config.env"})
 
 //conecting database
 connectDatabase()
-app.get("/",()=>{
+app.get("/",(res,req)=>{
     res.send("<h2>Welcome To My API</h2>")
 })
 const server =  app.listen(process.env.PORT,()=>{
