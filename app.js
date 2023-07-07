@@ -13,15 +13,7 @@ app.use(express.json())
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({extended:true}))
 //routs imports
-app.get('/', (req, res) => {
 
-  const users = [
-    { id: 1, name: 'John' },
-    { id: 2, name: 'Jane' }
-  ];
-
-  res.json(users);
-});
 const user=require("./routes/userRoute")
 app.use("/api/v1",user)
 
