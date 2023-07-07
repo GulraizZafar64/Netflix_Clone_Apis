@@ -12,10 +12,5 @@
             "src":"/(.*)",
             "dest":"/"
         }
-    ],
-    "functions": {
-    "api/function-name": {
-      "maxDuration": 20
-    }
-  }
+    ]
 }
