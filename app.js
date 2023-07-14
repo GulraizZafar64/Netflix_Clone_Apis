@@ -17,7 +17,9 @@ app.use(cors());
 // app.use(cors({
 //     origin: '*'
 // }));
-
+app.use(cors({
+    origin: 'http://localhost:3006'
+  }));
 //routs imports
 const user=require("./routes/userRoute")
 app.use("/api/v1",user)
