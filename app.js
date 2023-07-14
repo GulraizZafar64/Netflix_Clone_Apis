@@ -15,7 +15,7 @@ app.use(cookieParser())
 app.use(bodyParser.urlencoded({extended:true}))
 // app.use(cors());
 app.use(cors({
-    origin: '*'
+    origin: 'http://localhost:3000'
 }));
 
 //routs imports
