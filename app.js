@@ -15,17 +15,12 @@ app.use(cookieParser())
 app.use(bodyParser.urlencoded({extended:true}))
 // app.use(cors());
 app.use(cors({
-    origin: 'http://localhost:3000',
-    optionsSuccessStatus: 200 
-  }));
-  
-  const corsOptions = {
-    origin: 'http://localhost:3000',
-    optionsSuccessStatus: 200 // Some legacy browsers (e.g., IE11, various SmartTVs) choke on 204
-  };
+    origin: '*'
+}));
+
 //routs imports
 const user=require("./routes/userRoute")
-app.use("/api/v1", cors(corsOptions),user)
+app.use("/api/v1",user)
 
 //middleware for error
 app.use(errorMiddleware)
