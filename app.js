@@ -20,7 +20,7 @@ app.use(cors({
 //routs imports
 
 const user=require("./routes/userRoute")
-app.use("/api/v1",user)
+app.use("/",user)
 
 //middleware for error
 app.use(errorMiddleware)
