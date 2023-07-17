@@ -4,15 +4,26 @@ const User=require('../models/userModel');
 const sendToken = require("../utils/jwtToken");
 
 //register a user/////////////////////////////////////////////////////////////////////
-exports.registerUser=catchAsyncError(async(req,res,next)=>{
-    const {email,password}=req.body;
-    const user=await User.create({
-        email,password,
-
-    })
-    sendToken(user,200,res)
+exports.registerUser = catchAsyncError(async (req, res, next) => {
+  if (req.method === 'OPTIONS') {
+    // Respond to OPTIONS request
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.status(200).end();
+  } else {
+    // Handle other request methods (e.g., POST)
+    res.setHeader('Access-Control-Allow-Origin', '*');
   
-})
+    const { email, password } = req.body;
+    const user = await User.create({
+      email,
+      password,
+    });
+  
+    sendToken(user, 200, res);
+  }
+});
 
 
 
