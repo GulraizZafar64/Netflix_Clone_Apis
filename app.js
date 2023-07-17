@@ -7,7 +7,13 @@ const bodyParser=require('body-parser')
 const dotenv=require('dotenv')
 const cors = require('cors');
 
-
+app.use(cors(
+  {
+    origin:["https://netflix-clone-web-ten.vercel.app/"],
+    methods:["POST","GET"],
+    credentials:true
+  }
+))
 //config
 dotenv.config({path:"config/config.env"})
 app.use(express.json())
@@ -17,13 +23,7 @@ app.use(bodyParser.urlencoded({extended:true}))
 // app.use(cors({
 //   origin: '*'
 // }));
-app.use(cors(
-  {
-    origin:["http://localhost:3000"],
-    methods:["POST","GET"],
-    credentials:true
-  }
-))
+
 //routs imports
 
 const user=require("./routes/userRoute")
