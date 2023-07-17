@@ -14,7 +14,10 @@ exports.registerUser = catchAsyncError(async (req, res, next) => {
   } else {
     // Handle other request methods (e.g., POST)
     res.setHeader('Access-Control-Allow-Origin', '*');
-  
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.status(200).end();
     const { email, password } = req.body;
     const user = await User.create({
       email,
