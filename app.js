@@ -6,26 +6,17 @@ const errorMiddleware=require('./middleware/error')
 const bodyParser=require('body-parser')
 const dotenv=require('dotenv')
 const cors = require('cors');
-const path = require('path');
 
-app.use(cors(
-  // {
-  //   origin:["https://netflix-clone-web-ten.vercel.app/"],
-  //   methods:["POST","GET"],
-  //   credentials:true
-  // }
-))
+
 //config
 dotenv.config({path:"config/config.env"})
 app.use(express.json())
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({extended:true}))
-app.use(express.static(path.join(__dirname,"./Netflix_Clone_Web/build")))
-// app.use(cors());
+app.use(cors());
 // app.use(cors({
 //   origin: '*'
 // }));
-
 //routs imports
 
 const user=require("./routes/userRoute")
