@@ -9,7 +9,7 @@ exports.registerUser=catchAsyncError(async(req,res,next)=>{
 
 const checkEmail = await User.findOne({ email });
 if (checkEmail){
-    return next(new ErrorHander("Email Already Taken", 400));
+    return next(new ErrorHander("Email Already Taken", 422));
 }
     const user=await User.create({
         email,password,
