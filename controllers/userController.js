@@ -5,8 +5,12 @@ const sendToken = require("../utils/jwtToken");
 
 //register a user/////////////////////////////////////////////////////////////////////
 exports.registerUser=catchAsyncError(async(req,res,next)=>{
+  const {email,password}=req.body;
 
-    const {email,password}=req.body;
+const checkEmail = await User.findOne({ email });
+if (checkEmail){
+    return next(new ErrorHander("Email Already Taken", 400));
+}
     const user=await User.create({
         email,password,
 
