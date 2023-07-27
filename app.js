@@ -1,6 +1,6 @@
 const express=require("express")
 const app=express()
-const cookieParser=require('cookie-parser')
+const cookieParser = require('cookie-parser');
 const errorMiddleware=require('./middleware/error')
 // neacha wali do line file upload k liya
 const bodyParser=require('body-parser')
@@ -9,9 +9,9 @@ const cors = require('cors');
 
 
 //config
+app.use(cookieParser());
 dotenv.config({path:"config/config.env"})
 app.use(express.json())
-app.use(cookieParser())
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(cors());
 // app.use(cors({
