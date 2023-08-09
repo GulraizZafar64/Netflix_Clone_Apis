@@ -9,7 +9,7 @@ console.log(token)
 if(!token){
     return next(new ErrorHander("please login to acess this route",401))
 }
-const decodedData=jwt.verify(token,process.env.JWT_SECRET)
+const decodedData=jwt.verify(token,'bayakugun shareengun')
 ///decodeddata k sth jo id haaa wo hmna token create krta huva id jo pass ki thi wo haa or id 
 // userModel.js ma wo id haa
    req.user=await User.findById(decodedData.id)
